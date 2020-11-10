@@ -1,11 +1,11 @@
 exports.up = function (knex) {
   return knex.schema
-    .createTable("roles", tbl => {
+    .createTable("roles", (tbl) => {
       tbl.increments();
 
       tbl.string("name", 128).notNullable().unique();
     })
-    .createTable("users", tbl => {
+    .createTable("users", (tbl) => {
       tbl.increments();
 
       tbl.string("username", 128).notNullable().unique().index();
@@ -23,3 +23,5 @@ exports.up = function (knex) {
 exports.down = function (knex) {
   return knex.schema.dropTableIfExists("roles").dropTableIfExists("users");
 };
+
+//fixing push
